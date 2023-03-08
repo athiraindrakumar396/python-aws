@@ -1,0 +1,120 @@
+[2021-12-07 22:12:03 -0500] [935817] [INFO] Starting gunicorn 20.0.4
+[2021-12-07 22:12:03 -0500] [935817] [INFO] Listening at: http://0.0.0.0:5000 (935817)
+[2021-12-07 22:12:03 -0500] [935817] [INFO] Using worker: sync
+[2021-12-07 22:12:03 -0500] [935819] [INFO] Booting worker with pid: 935819
+[2021-12-07 22:12:03 -0500] [935819] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/athira/Projects/ECE1779_A3/assignment3/app/__init__.py", line 2, in <module>
+    from flask import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/__init__.py", line 21, in <module>
+    from .app import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/app.py", line 69, in <module>
+    from .wrappers import Request
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/wrappers.py", line 14, in <module>
+    from werkzeug.wrappers.json import JSONMixin as _JSONMixin
+ModuleNotFoundError: No module named 'werkzeug.wrappers.json'; 'werkzeug.wrappers' is not a package
+[2021-12-07 22:12:03 -0500] [935819] [INFO] Worker exiting (pid: 935819)
+[2021-12-07 22:12:03 -0500] [935817] [INFO] Shutting down: Master
+[2021-12-07 22:12:03 -0500] [935817] [INFO] Reason: Worker failed to boot.
+[2021-12-11 13:52:16 -0500] [36104] [INFO] Starting gunicorn 20.0.4
+[2021-12-11 13:52:16 -0500] [36104] [INFO] Listening at: http://0.0.0.0:5000 (36104)
+[2021-12-11 13:52:16 -0500] [36104] [INFO] Using worker: sync
+[2021-12-11 13:52:16 -0500] [36106] [INFO] Booting worker with pid: 36106
+[2021-12-11 13:52:16 -0500] [36106] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/athira/Projects/ECE1779_A3/assignment3/app/__init__.py", line 2, in <module>
+    from flask import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/__init__.py", line 21, in <module>
+    from .app import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/app.py", line 69, in <module>
+    from .wrappers import Request
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/wrappers.py", line 14, in <module>
+    from werkzeug.wrappers.json import JSONMixin as _JSONMixin
+ModuleNotFoundError: No module named 'werkzeug.wrappers.json'; 'werkzeug.wrappers' is not a package
+[2021-12-11 13:52:16 -0500] [36106] [INFO] Worker exiting (pid: 36106)
+[2021-12-11 13:52:16 -0500] [36104] [INFO] Shutting down: Master
+[2021-12-11 13:52:16 -0500] [36104] [INFO] Reason: Worker failed to boot.
+[2021-12-11 21:01:00 -0500] [75098] [INFO] Starting gunicorn 20.0.4
+[2021-12-11 21:01:00 -0500] [75098] [INFO] Listening at: http://0.0.0.0:5000 (75098)
+[2021-12-11 21:01:00 -0500] [75098] [INFO] Using worker: sync
+[2021-12-11 21:01:00 -0500] [75100] [INFO] Booting worker with pid: 75100
+[2021-12-11 21:01:00 -0500] [75100] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/athira/.local/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/athira/Projects/ECE1779_A3/assignment3/app/__init__.py", line 2, in <module>
+    from flask import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/__init__.py", line 21, in <module>
+    from .app import Flask
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/app.py", line 69, in <module>
+    from .wrappers import Request
+  File "/home/athira/.local/lib/python3.8/site-packages/flask/wrappers.py", line 14, in <module>
+    from werkzeug.wrappers.json import JSONMixin as _JSONMixin
+ModuleNotFoundError: No module named 'werkzeug.wrappers.json'; 'werkzeug.wrappers' is not a package
+[2021-12-11 21:01:00 -0500] [75100] [INFO] Worker exiting (pid: 75100)
+[2021-12-11 21:01:00 -0500] [75098] [INFO] Shutting down: Master
+[2021-12-11 21:01:00 -0500] [75098] [INFO] Reason: Worker failed to boot.

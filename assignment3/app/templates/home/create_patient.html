@@ -1,0 +1,75 @@
+{% extends 'home/first_layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content%}
+{% include "includes/alert.html" %}
+<div class="register_patient" style="background-color: #C9DDF5;width:70%;margin-left: 150px;">
+    <div class="patient-details" style="margin-left:120px;">
+        </br></br>
+        <h1>Register As Patient</h1>
+        <form action="{{ url_for('create_patient_save') }}" method="post">
+            <label for="patient_username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="patient_username" placeholder="Email" id="patient_username" required>
+            </br></br>
+            <label for="patient_password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="patient_password" placeholder="Password" id="patient_password" required>
+            </br></br>
+            <label for="age">
+                <i class="fas fa-eye"></i>
+            </label>
+            <input type="text" name="age" placeholder="Age" id="age" required>
+            </br></br>
+            <label for="phone">
+                <i class="fas fa-phone"></i>
+            </label>
+            <input type="text" name="phone" placeholder="Phone Number" id="phone" required>
+            </br></br>
+            <label for="zip">
+                <i class="fas fa-flag"></i>
+            </label>
+            <input type="text" name="zip" placeholder="Zip" id="zip" required>
+            </br></br>
+            <label for="state">
+                <i class="fas fa-map-pin"></i>
+            </label>
+            <input type="text" name="state" placeholder="State" id="state" required>
+            </br></br>
+            <div class="create" style="margin-left:80px">
+                <input class="create_text" type="submit" value="Register">
+            </div>
+            </br></br>
+            <input type="reset" value="Clear">
+            </br></br>
+        </form>
+    </div>
+</div>
+<style>
+    input {
+      width: 400px;
+      padding: 20px 32px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .fa, .fas {
+        width: 4%;
+    }
+    input[type="reset"] {
+        width: 37%;
+        padding: 14px;
+        margin-top: 26px;
+        border: 0;
+        cursor: pointer;
+        font-weight: bold;
+        color: #090739;
+        transition: background-color 0.2s;
+        margin-left: 122px;
+        margin-right: 120px;
+        border: 1px solid #808080;
+    }
+</style>
+{% endblock %}

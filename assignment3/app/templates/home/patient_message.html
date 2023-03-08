@@ -1,0 +1,104 @@
+{% extends 'home/layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content%}
+<style>
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+/* Add styles to the form container */
+.form-container {
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  resize: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-image: linear-gradient(#1FA2FF, #090739);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  height: 64px;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+</style>
+ <a style="padding:7px;" href='{{url_for("doctor_home")}}'>Back to Home Page</a>
+</br>
+<div class="messages-list">
+    <div class="container darker">
+      <p>Hello Doctor. When will you upload the prescription?</p>
+      <span class="time-right">11:00</span>
+    </div>
+
+    <div class="container">
+      <p>Hey! I will be doing that within few hours</p>
+      <span class="time-left">12:01</span>
+    </div>
+
+    <div class="container darker">
+      <p>Thank you Doctor</p>
+      <span class="time-right">13:32</span>
+    </div>
+
+    <div class="container">
+      <p>Hey, I have uploaded it. Please review it under your prescription section.</p>
+      <span class="time-left">15:15</span>
+    </div>
+</div>
+<form class="form-container">
+    <textarea placeholder="Type message.." name="msg" required="" style="float: left;width: 90%;"></textarea>
+    <button type="submit" class="btn" style="width: 10%; float: right; margin-top: 6px;">Send</button>
+</form>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+    <a style="padding:7px;" href='{{url_for("doctor_home")}}'>Back to Home Page</a>
+    {% include "includes/alert.html" %}
+    </br>
+    <div class="users-list" style="width:100%">
+        </br></br>
+        <table class="center" style="width:90%">
+        <thead>
+               <th>Patient's Email</th>
+               <th>Patient's Phone</th>
+               <th>Day</th>
+               <th>Slot</th>
+               <th>Status</th>
+               <th>Accept</th>
+               <th>Reject</th>
+               <th>Mark as Complete / Failed</th>
+               <th>Action</th>
+        </thead>
+        {% for row in allAppointments %}
+            <tr>
+                <td>{{ row['patient_name']}}</td>
+                <td>{{ row['phone']}}</td>
+                <td>{{ row['day']}}</td>
+                <td>{{ row['slot']}}</td>
+                <td>{{ row['status']}}</td>
+                <td>
+                    {% if row['status'] != 'approved' %}
+                        {% if row['status'] != 'rejected' %}
+                            {% if row['status'] != 'complete' %}
+                                {% if row['status'] != 'failed' %}
+                                    <form action="{{url_for('accept_slots_patient', email=row['patient_name'], _external=True)}}" method='post' onsubmit='return confirm("Are you sure?")'>
+                                        <input type='submit' value='Accept' />
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if row['status'] != 'approved' %}
+                        {% if row['status'] != 'rejected' %}
+                            {% if row['status'] != 'complete' %}
+                                {% if row['status'] != 'failed' %}
+                                    <form action='{{url_for("reject_slots_patient", email=row["patient_name"], _external=True)}}' method='post' onsubmit='return confirm("Are you sure?")'>
+                                        <input type='submit' value='Reject' />
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if row['status'] != 'pending' %}
+                        {% if row['status'] != 'rejected' %}
+                            {% if row['status'] != 'complete' %}
+                                {% if row['status'] != 'failed' %}
+                                    <form action='{{url_for("complete_slots_patient", email=row["patient_name"], _external=True)}}' method='post' onsubmit='return confirm("Are you sure?")'>
+                                        <input type='submit' value='Complete' />
+                                    </form>
+                                    </br>
+                                    <form action='{{url_for("fail_slots_patient", email=row["patient_name"], _external=True)}}' method='post' onsubmit='return confirm("Are you sure?")'>
+                                        <input type='submit' value='Fail' />
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </td>
+
+                <td>
+                    {% if row['status'] != 'failed' %}
+                        {% if row['status'] != 'complete' %}
+                            <a href='{{url_for("patient_message", email=row["patient_name"], _external=True)}}'>Message</a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

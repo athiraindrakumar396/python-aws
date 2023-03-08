@@ -1,0 +1,60 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+    <a style="padding:7px;" href='{{url_for("patient_home")}}'>Back to Home Page</a>
+    {% include "includes/alert.html" %}
+    </br>
+    <div class="users-list" style="width:100%">
+        </br></br>
+        <table class="center" style="width:90%">
+        <thead>
+               <th>Doctor's Email</th>
+               <th>Day</th>
+               <th>Slot</th>
+               <th>Status</th>
+               <th>Reschedule</th>
+               <th>Cancel</th>
+               <th>Action</th>
+        </thead>
+        {% for row in allAppointments %}
+            {% if row['slot'] %}
+                <tr>
+                    <td>{{ row['doctor_name']}}</td>
+                    <td>{{ row['day']}}</td>
+                    <td>{{ row['slot']}}</td>
+                    <td>{{ row['status']}}</td>
+                    <td>
+                        {% if row['status'] != 'complete' %}
+                            {% if row['status'] != 'failed' %}
+                                <form action="{{url_for('select_slots', email=row['doctor_name'], _external=True)}}" method='post' onsubmit='return confirm("Are you sure?")'>
+                                    <input type='submit' value='Reschedule' />
+                                </form>
+                            {% endif %}
+                        {% endif %}
+
+                    </td>
+                    <td>
+                        {% if row['status'] != 'complete' %}
+                            {% if row['status'] != 'failed' %}
+                                <form action='{{url_for("delete_appointment")}}' method='post' onsubmit='return confirm("Are you sure?")'>
+                                    <input type='submit' value='Cancel Appointment' />
+                                </form>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+
+                    <td>
+                    {% if row['status'] != 'failed' %}
+                        {% if row['status'] != 'complete' %}
+                            <a href='{{url_for("doctor_message", email=row["doctor_name"], _external=True)}}'>Message</a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

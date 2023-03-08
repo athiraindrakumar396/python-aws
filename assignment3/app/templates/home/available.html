@@ -1,0 +1,87 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+</br>
+{% include "includes/alert.html" %}
+</br>
+<div class="available-slots" style="background-color: #C9DDF5;width:100%;padding-left:140px;padding-top:10px">
+    <a style="margin-left: -120px; top: 10px;" href='{{url_for("doctor_home")}}'>Back to Home Page</a>
+    <p><b>Slots can be selected per week only. Please update the timings per week if there are any changes</b></p>
+    <form action="{{ url_for('save_slots') }}" method="post">
+        <div class="day" style="width=100%;">
+            <div class="day_head" style="float:left;width:25%;margin-left:60px;margin-right:100px"><p>Day</p></div>
+            <div class="day-start" style="float:left;width:25%"><p>Start time</p></div>
+            <div class="day-end" style="float:right;width:25%"><p>End time</p></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day1" style="width=100%">
+            <div class="monday" style="float:left;width=30%"><input type="text" name="monday" id="monday" value="Monday" readonly/></div>
+            <div class="monday-start-time start-times" style="float:left;width=30%"><input type="time" name="start-time-monday" id="start-time-monday"></div>
+            <div class="monday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-monday" id="end-time-monday"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day2" style="width=100%">
+            <div class="tuesday" style="float:left;width=30%"><input type="text" name="tuesday" id="tuesday" value="Tuesday" readonly/></div>
+            <div class="tuesday-start-time start-times" style="float:left;width=30%"><input type="time" name="start-time-tuesday" id="start-time-tuesday"></div>
+            <div class="tuesday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-tuesday" id="end-time-tuesday"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day3" style="width=100%">
+            <div class="wednesday" style="float:left;width=30%"><input type="text" name="wednesday" id="wednesday" value="Wednesday" readonly/></div>
+            <div class="wednesday-start-time start-times" style="float:left;width=30%"><input type="time" name="start-time-wednesday" id="start-time-wednesday"></div>
+            <div class="wednesday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-wednesday" id="end-time-wednesday"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day4" style="width=100%">
+            <div class="thursday" style="float:left;width=30%"><input type="text" name="thursday" id="thursday" value="Thursday" readonly/></div>
+            <div class="thursday-start-time start-times" style="float:left;width=30%;"><input type="time" name="start-time-thursday" id="start-time-thursday"></div>
+            <div class="thursday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-thursday" id="end-time-thursday"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day5" style="width=100%">
+            <div class="friday" style="float:left;width=30%"><input type="text" name="friday" id="friday" value="Friday" readonly/></div>
+            <div class="friday-start-time start-times" style="float:left;width=30%;"><input type="time" name="start-time-friday" id="start-time-friday"></div>
+            <div class="friday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-friday" id="end-time-friday"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="day6" style="width=100%">
+            <div class="saturday" style="float:left;width=30%"><input type="text" name="saturday" id="saturday" value="Saturday" readonly/></div>
+            <div class="saturday-start-time start-times" style="float:left;width=30%;"><input type="time" name="start-time-saturday" id="start-time-saturday"></div>
+            <div class="saturday-end-time end-times" style="float:right;width=30%"><input type="time" name="end-time-saturday" id="end-time-saturday"></div>
+        </div>
+        </br></br></br>
+        <div class="create" style="margin-left:350px">
+            <input class="create_text" type="submit" value="Submit Slots">
+        </div>
+        </br></br></br>
+    </form>
+</div>
+<style>
+    .start-times{
+        margin-left:270px;
+    }
+    .end-times{
+        margin-right:220px;
+    }
+    input {
+      width: 150px;
+      padding: 12px 20px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+</style>
+{% endblock %}

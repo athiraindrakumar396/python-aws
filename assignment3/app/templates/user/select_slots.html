@@ -1,0 +1,99 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+    <a style="padding:7px;" href='{{url_for("patient_home")}}'>Back to Home Page</a>
+    {% include "includes/alert.html" %}
+    <form action="{{ url_for('save_slots_patient', email=username) }}" method="post">
+
+        <div class="content-container" style="width:100%;height:2000px">
+            <div class="select_slots" style="margin-left:20px">
+                <h3 class="text-list">Slots by day of week</h3>
+
+                {% for row in itemsArray %}
+                    {% if row['slots'] %}
+                        <fieldset id="{{ row['day'] }}">
+                            <p>{{ row['day'] }}</p>
+                            {% for slot in row['slots'] %}
+                                <label class="container">{{slot}}
+                                  <input type="radio" value="{{ row['day'] }}|{{slot}}" name="slot">
+                                  <span class="checkmark"></span>
+                                </label>
+                                </br>
+                            {% endfor %}
+                        </fieldset>
+                    {% endif %}
+                {% endfor %}
+                </br></br>
+                <div class="create" style="margin-left:500px">
+                    <input class="create_text" style="margin-left:25px" type="submit" value="Schedule Appointment">
+                </div>
+            </div>
+        </div>
+    </form>
+
+<style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+</style>
+{% endblock %}

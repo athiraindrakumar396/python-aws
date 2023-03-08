@@ -1,0 +1,85 @@
+{% extends 'home/first_layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content%}
+<style>
+.accordion {
+  background-color: #C9DDF5;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #C9DDF5;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<h2 style="color: black;">Common Questions by Doctors</h2>
+<button class="accordion">Q. How do I update my contact details?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. You can update your address and postal code, and your email id. Click ‘Save’ to save changes.</p>
+</div>
+
+<button class="accordion">Q. How do I add/change my available slots?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. Select the option ‘Add your available slots’. Now you can add or edit your slots on each day of the week.</p>
+</div>
+
+<button class="accordion">Q. How do I manage my appointments?</button>
+<div class="panel">
+  <p>A. Login to your account and click ‘Manage Appointments’. This will show you the patient details along with the appointment details. If a patient has requested an appointment you can choose to approve or reject it. If you have approved an appointment, you can select ‘Completed’ once the appointment is completed, or ‘Failed’ if the patient did not make it to the appointment.</p>
+</div>
+
+<button class="accordion">Q. How do I view patients’ details?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘View Patient Records’. You can view patients’ email id, contact number, age, postal code and issues faced. You can also upload prescription for the patient and download previously uploaded prescriptions.</p>
+</div>
+
+<button class="accordion">Q. How do I change my password?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. Select the option ‘Change Password’. Enter your old password, new password and re-enter the new password to confirm. Click ‘Change Password’ to confirm the changes.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+{% endblock %}

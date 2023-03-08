@@ -1,0 +1,23 @@
+{% extends 'home/layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content%}
+{% include "includes/alert.html" %}
+<a style="padding:7px;margin-left:180px" href='{{url_for("patient_home")}}'>Back to Home Page</a>
+</br></br>
+<div class="add_issue" style="background-color: #C9DDF5;width:90%;margin-left:180px">
+    <form action="{{ url_for('save_health_issues') }}" method="post" style="padding-left:60px">
+        <label for="issue"></label>
+        <input style="width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="issue" placeholder="Add Health Issue" id="issue" required>
+        <div class="create">
+            <input class="create_text" style="margin-left:25px" type="submit" value="Update">
+        </div>
+    </form>
+    </br></br>
+</div>
+{% endblock %}

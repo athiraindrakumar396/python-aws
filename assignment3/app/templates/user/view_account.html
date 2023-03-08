@@ -1,0 +1,125 @@
+{% extends 'home/layout.html' %}
+{% block content %}
+{% include "includes/alert.html" %}
+<div class='change-password' style="background-color: #C9DDF5;width:70%;margin-left:250px">
+    </br></br>
+    <h1>Edit User Account</h1>
+    <form action='{{url_for("save_account")}}' method='post'>
+        <label for="username">
+            <i class="fas fa-user"></i>
+        </label>
+        <input style="width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="username" value={{username}} id="username" required>
+        {% if 'is_patient' in session %}
+            </br></br>
+            <label for="age">
+                <i class="fas fa-eye"></i>
+            </label>
+            <input style="width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="age" value={{age}} id="age" required>
+            </br></br>
+            <label for="phone">
+                <i class="fas fa-phone"></i>
+            </label>
+            <input style="width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="phone" value={{phone}} id="phone" required>
+        {% endif %}
+        </br></br>
+        <label for="zip">
+            <i class="fas fa-flag"></i>
+        </label>
+        <input style="width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="zip" value={{zip}} id="zip" required>
+        </br></br>
+        <label for="state">
+            <i class="fas fa-map-pin"></i>
+        </label>
+        <input style="width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" type="text" name="state" value={{state}} id="state" required>
+        </br></br>
+        <div class="create">
+            <input class="create_text" style="margin-left:25px" type="submit" value="Save Account">
+        </div>
+        </br></br>
+    </form>
+    {% if 'is_doctor' in session %}
+        <div id="container-change-pwd" style="float:left;width:33%">
+            <form action="{{url_for('doctor_change_password')}}" method="get">
+                <div class="create" style="margin-left:28px">
+                    <input class="create_text" type="submit" value="Change Password">
+                </div>
+            </form>
+        </div>
+        <div id="container-delete-account" style="float:left;width:33%">
+            <form action="{{url_for('delete_doctor_account')}}" method="post" onsubmit='return confirm("Are you sure?")'>
+                <div class="create" style="margin-left:28px">
+                    <input class="create_text" type="submit" value="Delete Account">
+                </div>
+            </form>
+        </div>
+        <div id="container-add-slots" style="float:right;width:33%">
+            <form action="{{url_for('availability')}}" method="get">
+                <div class="create">
+                    <input class="create_text" type="submit" value="Add your available slots">
+                </div>
+            </form>
+        </div>
+    {% endif %}
+    {% if 'is_patient' in session %}
+        <div id="patient-change-pwd" style="float:left;width:33%">
+            <form action="{{url_for('patient_change_password')}}" method="get">
+                <div class="create" style="margin-left:28px">
+                    <input class="create_text" type="submit" value="Change Password">
+                </div>
+            </form>
+        </div>
+        <div id="patient-delete" style="float:left;width:33%">
+            <form action="{{url_for('delete_patient_account')}}" method="post" onsubmit='return confirm("Are you sure?")'>
+                <div class="create" style="margin-left:28px">
+                    <input class="create_text" type="submit" value="Delete Account">
+                </div>
+            </form>
+        </div>
+        <div id="patient-issues" style="float:right;width:33%">
+            <form action="{{url_for('add_health_issues')}}" method="get">
+                <div class="create">
+                    <input class="create_text" type="submit" value="Add Health Issue">
+                </div>
+            </form>
+        </div>
+    {% endif %}
+    </br></br></br></br></br></br>
+    <a style="padding:7px;margin-left:35px" href='{{url_for(home)}}'>Back to Home Page</a>
+    </br></br>
+</div>
+<style>
+    .fa, .fas {
+        width: 4%;
+    }
+</style>
+{% endblock %}

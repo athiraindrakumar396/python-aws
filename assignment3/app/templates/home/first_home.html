@@ -1,0 +1,54 @@
+{% extends 'home/first_layout.html' %}
+
+{% block content %}
+{% include "includes/alert.html" %}
+<div class="welcome-text" style="float:left;width:50%;padding-left:160px">
+    <div class="x-col e574-3 mfy-m mfy-n"><div class="x-text e574-4 mfy-t mfy-u mfy-v mfy-w mfy-x mfy-y mfy-z mobile-text-accessibility"><h2 style="
+    color: #272727;font-size: 285.7%;line-height: 1.2; margin: 1.25em 0 0.2em;text-rendering: optimizelegibility;font-family: 'Abhaya Libre',serif;
+    font-style: normal;    letter-spacing: -0.01em;
+    font-weight: 400;
+">Your health is a journey.
+We're with you all the way.</h2><div class="x-text e574-5 mfy-u mfy-v mfy-w mfy-z mfy-10 mfy-11 mfy-12 mfy-13 mfy-14  x-hide-sm x-hide-xs"><p style="margin: 0 0 1.5em;font-size: 1.55em;    transition-property: color,border-color,background-color,box-shadow,text-shadow,column-rule,opacity,filter,transform;    line-height: 1.6;font-family: 'Nunito Sans',sans-serif;">In a world of more 'do it faster' and less 'do it together', we believe healthcare needs a different approach. More information is better, but a better connection to your doctor is everything. That's why we created eDoctor.</p></div></div>
+</div></div>
+<div id="boxes" style="float:right;width:50%">
+    <div class="login left-login">
+        <h1>Login as Doctor</h1>
+        <form action="{{ url_for('doctor_login') }}" method="post">
+            <label for="doctor_username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="doctor_username" placeholder="Email" id="doctor_username" required>
+            <label for="doctor_password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="doctor_password" placeholder="Password" id="doctor_password" required>
+            <a href='{{url_for("doctor_forgot_password")}}'>Forgot Password</a>
+            <div class="doctor_msg">{{ msg }}</div>
+            <input type="submit" value="Login">
+            </br>
+        </form>
+    </div>
+    <div class="login right-login">
+        <h1>Login as Patient</h1>
+        <form action="{{ url_for('patient_login') }}" method="post">
+            <label for="patient_username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="patient_username" placeholder="Email" id="patient_username" required>
+            <label for="patient_password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="patient_password" placeholder="Password" id="patient_password" required>
+            <a href='{{url_for("patient_forgot_password")}}'>Forgot Password</a>
+            <div class="doctor_msg">{{ msg }}</div>
+            <input type="submit" value="Login">
+            </br>
+        </form>
+    </div>
+</div>
+<style>
+    .content {
+        width: 100% !important
+    }
+</style>
+{% endblock %}

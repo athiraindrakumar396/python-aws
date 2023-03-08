@@ -1,0 +1,70 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+
+    {% include "includes/alert.html" %}
+
+        <div class="content-container" style="width:50%;margin-left:350px;padding-left:175px;border-radius:15px;border-color: #C9DDF5;">
+
+            <div id="container-patient">
+                <form action="{{url_for('view_account')}}" method="post">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="My Account">
+                    </div>
+                </form>
+            </div>
+            </br></br>
+            {% if session['is_patient'] %}
+
+                <form action="{{url_for('find_doctors')}}" method="get">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="Find Doctors">
+                    </div>
+                </form>
+                </br></br>
+
+                <form action="{{url_for('get_all_appointments')}}" method="get">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="View Appointments">
+                    </div>
+                </form>
+                </br></br>
+            {% endif %}
+            {% if session['is_doctor'] %}
+                <form action="{{url_for('doctor_get_all_appointments')}}" method="get">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="Manage Appointments">
+                    </div>
+                </form>
+                </br></br>
+
+                <form action="{{url_for('doctor_get_all_patients')}}" method="get">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="View Patient Records">
+                    </div>
+                </form>
+                </br></br>
+            {% endif %}
+            {% if session['is_patient'] %}
+                <form action="{{url_for('get_prescriptions')}}" method="get">
+                    <div class="create">
+                        <input class="create_text" type="submit" value="View Prescriptions">
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+{% if session['is_patient'] %}
+    <style>
+        .content-container {
+            height:450px;
+        }
+    </style>
+{% endif %}
+{% if session['is_doctor'] %}
+    <style>
+        .content-container {
+            height:325px;
+        }
+    </style>
+{% endif %}
+{% endblock %}

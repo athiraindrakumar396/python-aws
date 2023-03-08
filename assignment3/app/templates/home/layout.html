@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://multidatespickr.sourceforge.net/jquery-ui.multidatespicker.js"></script>
+
+</head>
+
+<body class="loggedin">
+    <nav class="navtop">
+        <div class="containers" style="padding-top:15px">
+                <div class="dropdown" style="float: left;width: 60%;">
+                    <a style="font-size: 35px;margin-left: 65px" class="dropbtn" href="{{url_for('home_page')}}">Tele-A-Doc</a>
+                </div>
+
+                <div class="dropdown" style="/* margin-left:80px */width: 10%;float: right;margin-top: 10px;">
+                  <a style="margin-right: -23em;" href="{{url_for('logout')}}"><i style="padding: 2px 20px 0 0;" class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

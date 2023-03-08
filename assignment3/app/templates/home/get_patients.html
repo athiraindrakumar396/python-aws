@@ -1,0 +1,56 @@
+{% extends 'home/layout.html' %}
+
+{% block content %}
+    {% include "includes/alert.html" %}
+    <a style="padding:7px;" href='{{url_for("doctor_home")}}'>Back to Home Page</a>
+    </br>
+    <div class="users-list" style="width:100%">
+        </br></br>
+        <table class="center" style="width:98%">
+        <thead>
+               <th>Date</th>
+               <th>Patient's Email</th>
+               <th>Patient's Phone</th>
+               <th>Age</th>
+               <th>Zip</th>
+               <th>Issues</th>
+               <th>Download prescription</th>
+               <th>Upload new prescription</th>
+               <th>Message</th>
+        </thead>
+        {% for row in medicalHistory %}
+            {% for issue in row %}
+            <tr>
+                <td>{{ issue['date']}}</td>
+                <td>{{ issue['patient_name']}}</td>
+                <td>{{ issue['phone']}}</td>
+                <td>{{ issue['age']}}</td>
+                <td>{{ issue['zip']}}</td>
+                <td>{{ issue['issue'] }}</td>
+                <td>
+                    {% if issue['url'] %}
+                        <a href="{{issue['url']}}">Download</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <form action='{{url_for("upload_prescription", email=issue["patient_name"], issue=issue["issue"])}}' method='post' enctype = "multipart/form-data">
+                        <div class="upload">
+                            <div class="upload-file" style="float:left;width:56%">
+                                <input type="file" id="prescription" name="prescription">
+                            </div>
+                            <div class="upload-submit" style="float:right;">
+                                <input class="upload-file-submit" type="submit" value="Upload">
+                            </div>
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <a href='{{url_for("patient_message", email=issue["patient_name"], _external=True)}}'>Message Patient</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

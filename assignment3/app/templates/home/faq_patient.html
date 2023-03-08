@@ -1,0 +1,85 @@
+{% extends 'home/first_layout.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content%}
+<style>
+.accordion {
+  background-color: #C9DDF5;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #C9DDF5;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<h2 style="color: black;">Common Questions by Patients</h2>
+<button class="accordion">Q. How do I update my contact details?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. You can update your address and postal code, and your email id. Click ‘Save’ to save changes.</p>
+</div>
+
+<button class="accordion">Q. How do I manage my appointments?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘View Appointments’. This will show you the day and time slot of the appointment and the status. You can also reschedule or cancel the appointment. You can also message the doctor.</p>
+</div>
+
+<button class="accordion">Q. How do I update my health issues?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. Select the option ‘Add Health Issue’. Now you can add your health issues.</p>
+</div>
+
+<button class="accordion">Q. How do I search for doctors?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘Find Doctors’. You will see a list of doctors within a radius of configured kilometers from your postal code.</p>
+</div>
+
+<button class="accordion">Q. How do I change my password?</button>
+<div class="panel">
+  <p>A. On your account homepage, click ‘My Account’. Select the option ‘Change Password’. Enter your old password, new password and re-enter the new password to confirm. Click ‘Change Password’ to confirm the changes.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+{% endblock %}

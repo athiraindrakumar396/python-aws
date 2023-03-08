@@ -1,0 +1,455 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body , #auth{
+    margin: 0;
+    background: url('https://www.innomar-strategies.com/-/media/assets/innomarstrategies/services/patient-support-programs/psp_top-banner.jpg?h=4000&la=en&w=7360&hash=C42DD76D0D57475459B02954339E2820A720BD94')  no-repeat center fixed;
+}
+table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #C9DDF5;
+}
+.login {
+    width: 400px;
+    background-color: #C9DDF5;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    height: 340px;
+    margin-top: 30px;
+    margin-left:300px
+}
+.login h1 {
+    text-align: center;
+    color: #090739;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #090739;
+}
+.login .links {
+    display: flex;
+    padding: 0 15px;
+}
+.login .links a {
+    color: #090739;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0 10px 10px 10px;
+    font-weight: bold;
+}
+.login .links a:hover {
+    color: #090739;
+}
+.login a {
+    color: #090739;
+}
+.login a:hover {
+    color: #090739;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+.login .links a.active {
+    border-bottom: 3px solid #090739;
+    color: #090739;
+}
+.login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.login form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-image: linear-gradient(#1FA2FF, #090739);
+    color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"], .login form input[type="email"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #090739;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.login form input[type="submit"] {
+    width: 40%;
+    padding: 15px;
+    margin-top: 33px;
+    background-image: linear-gradient(#1FA2FF, #090739);
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+    margin-left: -142px;
+}
+.login form input[type="reset"] {
+    width: 40%;
+    padding: 15px;
+    margin-top: 26px;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #090739;
+    transition: background-color 0.2s;
+    margin-left: 100px;
+    margin-right: 120px;
+    margin-bottom: 5px;
+    border: 1px solid #808080;
+}
+.login form input[type="submit"]:hover {
+    background-image: linear-gradient(#1FA2FF, #090739);
+    transition: background-color 0.2s;
+}
+.login form input[type="reset"]:hover {
+    background-color: #AEAEAE;
+    transition: background-color 0.2s;
+}
+.navtop {
+    background-image: linear-gradient(#1FA2FF, #090739);
+    height: 75px;
+    width: 100%;
+    border: 0;
+}
+
+.navtop div h1, .navtop div a {
+    display: inline-flex;
+    align-items: center;
+}
+.navtop div h1 {
+    flex: 1;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    color: #ffff;
+    font-weight: normal;
+}
+.navtop div a {
+    text-decoration: none;
+    color: #ffff;
+}
+.navtop div a i {
+    padding: 2px 8px 0 0;
+}
+.navtop div a:hover {
+    color: #eaebed;
+}
+.content {
+    width: 70%;
+    margin: 10px auto;
+}
+.content h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #e0e0e3;
+    color: #4a536e;
+}
+
+.content > p table td, .content > div table td {
+  padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+  font-weight: bold;
+  color: #4a536e;
+  padding-right: 15px;
+}
+
+/* Create 4 equal columns that floats next to each other */
+#list.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Create 2 equal columns that floats next to each other */
+#view.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.create {
+  border: none;
+  color: #090739;
+  padding: 32px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 300px;
+  height: 40px;
+}
+
+.create_text {
+  background-color: #090739;
+  color: #ffff;
+  font-size: 20px;
+}
+
+.change_pwd {
+  background-color: #090739;
+  color: #ffff;
+  font-size: 20px;
+}
+
+.upload-submit {
+  background-color: #090739;
+  color: #ffff;
+  font-size: 20px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.web-submit {
+  background-color: #090739;
+  color: #ffff;
+  font-size: 20px;
+}
+
+.change-pwd {
+  border: none;
+  color: #090739;
+  padding: 32px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 300px;
+  height: 40px;
+}
+
+.upload-image-container {
+  border: none;
+  color: #090739;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 80%;
+  height: 40px;
+}
+
+.web-url {
+  border: none;
+  color: #090739;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 80%;
+  height: 40px;
+}
+
+#container-user {
+    text-align: center;
+}
+
+#container-image {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+
+.content-container {
+  background-color: #C9DDF5;
+  margin-top: 50px;
+  padding-bottom: 32px;
+}
+
+#images_list { 
+  text-align: center;
+  display: inherit;
+  font-size: 25px;
+}
+
+.users-list {
+  margin-top: 20px;
+  background-color: #C9DDF5;
+  padding-bottom: 30px;
+}
+
+.text-list {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 30px;
+}
+
+input[type="submit"]  {
+    cursor: pointer;
+}
+
+.alert-danger {
+  padding: 20px;
+  background-color: #f8d7da; /* Red */
+  color: #842029;
+  margin-bottom: 15px;
+  border-color: #f5c2c7;
+}
+
+.alert-success {
+  padding: 20px;
+  background-color: #d1e7dd; /* Red */
+  color: #0f5132;
+  margin-bottom: 15px;
+  border-color: #badbcc;
+}
+
+/* The close button */
+.btn-close {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: none !important;
+  border: none;
+  color: black;
+}
+
+/* When moving the mouse over the close button */
+.btn-close:hover {
+  color: black;
+  background: none !important;
+}
+
+.new {
+    text-align: center;
+}
+
+.change-password {
+    text-align: center;
+}
+
+.forgot-password {
+    text-align: center;
+    padding: 286px;
+}
+
+.submit-new {
+  border: none !important;
+  background: #090739 !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 140px;
+  height: 40px;
+  color: white;
+}
+
+.change-pwd-button {
+  border: none !important;
+  background: #090739 !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 140px;
+  height: 40px;
+  color: white;
+}
+
+.forgot-pwd-button {
+  border: none !important;
+  background: #090739 !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 140px;
+  height: 40px;
+  color: white;
+  margin-left: 115px;
+}
+
+.image-container {
+  width: 100%;
+  padding-top: 16px;
+  padding-left: 42px;
+  height: 700px;
+}
+
+.image-container img {
+  width: 200px;
+  height: 135px;
+}
+
+.row-image-view {
+    top: 20px;
+    width: 100%;
+}
+
+.reset-pwd {
+    border: none !important;
+    background: #090739 !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 30px;
+    color: white;
+}
+
+.create input[type='submit'] {
+    background-image: linear-gradient(#1FA2FF, #090739);
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width:90%
+}
+
+.upload input[type='submit'] {
+    background-image: linear-gradient(#1FA2FF, #090739);
+    border: none;
+    color: white;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+}
